@@ -30,6 +30,7 @@ function Actors() {
               ))}
             </ul>
           </article>
+          lord
         ))}
         {/* Actor info here! */}
       </main>
