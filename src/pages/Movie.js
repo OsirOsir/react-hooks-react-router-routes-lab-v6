@@ -4,15 +4,14 @@ import NavBar from "../components/NavBar";
 
 function Movie() {
   const [movieItem, setMovieItem] = useState({});
-  const { id } = useParams();  // Correctly destructure the id
+  const { id } = useParams();
 
   useEffect(() => {
     fetch(`http://localhost:4000/movies/${id}`)
-      .then((r) => r.json())
+      .then((res) => res.json())
       .then((data) => setMovieItem(data))
-      .catch((error) => console.error(error));
+      .catch((error) => console.error('Error fetching movie:', error));
   }, [id]);
-  
 
   if (!movieItem.title) {
     return <h1>Loading...</h1>;

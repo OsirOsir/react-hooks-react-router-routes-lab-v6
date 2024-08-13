@@ -5,7 +5,7 @@ function MovieCard({ movie }) {
   return (
     <article>
       <h2>{movie.title}</h2>
-      <Link to={`/movie/${movie.id}`}>View Info</Link> {/* Ensure path matches */}
+      <Link to={`/movie/${movie.id}`}>View Info</Link>
     </article>
   );
 }

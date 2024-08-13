@@ -2,21 +2,18 @@ import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 
 function Actors() {
-
-  const [actors, setActors] = useState([])
+  const [actors, setActors] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:4000/actors")
-      .then(r => r.json())
-      .then(data => setActors(data))
-      .catch(error => console.error())
-  })
-
+      .then((res) => res.json())
+      .then((data) => setActors(data))
+      .catch((error) => console.error('Error fetching actors:', error));
+  }, []);
 
   return (
     <>
       <header>
-        {/* What component should go here? */}
         <NavBar />
       </header>
       <main>
@@ -30,12 +27,10 @@ function Actors() {
               ))}
             </ul>
           </article>
-          lord
         ))}
-        {/* Actor info here! */}
       </main>
     </>
   );
-};
+}
 
 export default Actors;

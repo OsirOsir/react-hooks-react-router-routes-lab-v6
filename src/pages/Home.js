@@ -7,14 +7,10 @@ function Home() {
 
   useEffect(() => {
     fetch("http://localhost:4000/movies")
-      .then((r) => r.json())
+      .then((res) => res.json())
       .then((data) => setMovies(data))
-      .catch(error => console.error(error));
+      .catch((error) => console.error('Error fetching movies:', error));
   }, []);
-
-  const movieList = movies.map(movie => (
-    <MovieCard key={movie.id} movie={movie} />
-  ));
 
   return (
     <>
@@ -23,7 +19,9 @@ function Home() {
       </header>
       <main>
         <h1>Home Page</h1>
-        {movieList}
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </main>
     </>
   );
